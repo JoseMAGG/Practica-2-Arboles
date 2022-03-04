@@ -1,4 +1,5 @@
 import arbol.binario.listaligada.busqueda.avl.ArbolAVL;
+import arbol.nario.binariolistaligada.ArbolContactosEjecutivos;
 
 import models.Contact;
 
@@ -21,9 +22,10 @@ public class main {
         System.out.println(contactos.toString());
         Contact contact = new Contact((Long.valueOf("3148284339")));
         System.out.println((contactos.buscar(contact)));// ejemplo buscar
-
+        ArbolContactosEjecutivos<Contact> ejecutivos = FileTo.contactosEjecutivos("src/empresariales.txt", contactos);
+        System.out.println("Imprimiendo ejecutivos");
+        System.out.println(ejecutivos);
     }
-
 }
 
 // Lista de contactos ejecutivos=> //lista generalizada o un arbol n-ario aqui
