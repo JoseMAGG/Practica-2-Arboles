@@ -1,7 +1,9 @@
-import arbol.binario.listaligada.busqueda.avl.ArbolAVL;
-import bussiness.util.FileTo;
-import models.Contact;
-import bussiness.avl.IdentificadorDeLlamadas;
+import src.arbol.binario.listaligada.busqueda.avl.ArbolAVL;
+import src.bussiness.util.FileTo;
+import src.models.Contact;
+import src.view.Index;
+import src.bussiness.avl.IdentificadorDeLlamadas;
+
 
 //3. Conocer que personas están asociados a una característica particular en uno de sus genes.
 
@@ -14,10 +16,11 @@ public class main {
     public static void main(String[] args) throws Exception {
 
         IdentificadorDeLlamadas identificador = new IdentificadorDeLlamadas();
-
         identificador.creteAvlFromFile();
-        Contact foundContact = identificador.searchContact("3148284339");
-        System.out.println("contacto encontrado: " + foundContact);
+        //crear arbol binario
+        Index.mainScreen(identificador);
+       // Contact foundContact = identificador.searchContact("3148284339");
+       // System.out.println("contacto encontrado: " + foundContact);
 
         System.out.println("Contacto insertado" + (identificador.addContact(new Contact("ANA SOFIA", "123456"))));
         foundContact = identificador.searchContact("123456");
