@@ -1,4 +1,4 @@
-package src.view.constants;
+package view.constants;
 
 public class SearchByNumberConstants {
     public static final String TITLE =

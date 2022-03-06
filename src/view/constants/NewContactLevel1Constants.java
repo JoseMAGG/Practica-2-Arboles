@@ -1,4 +1,4 @@
-package src.view.constants;
+package view.constants;
 
 public class NewContactLevel1Constants {
     public static final String TITLE = 

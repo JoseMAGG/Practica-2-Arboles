@@ -1,9 +1,9 @@
-package src.view;
+package view;
 import java.util.Scanner;
 
-import src.bussiness.avl.IdentificadorDeLlamadas;
-import src.controller.MainController;
-import src.view.constants.MainConstants;
+import bussiness.avl.IdentificadorDeLlamadas;
+import controller.MainController;
+import view.constants.MainConstants;
 
 
 public class Index {

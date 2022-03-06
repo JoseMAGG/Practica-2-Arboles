@@ -1,4 +1,4 @@
-package src.models;
+package models;
 
 public class Contact implements Comparable<Contact> {
 
@@ -43,5 +43,11 @@ public class Contact implements Comparable<Contact> {
 
         return this.phoneNumber.compareTo(o.phoneNumber);
     }
+   
+    public String toLineText() {
+
+        return this.phoneNumber.toString() + ":" + this.name;
+    }
+
 
 }

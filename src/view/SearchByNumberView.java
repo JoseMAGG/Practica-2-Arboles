@@ -1,11 +1,11 @@
-package src.view;
-import src.view.constants.SearchByNumberConstants;
+package view;
+import view.constants.SearchByNumberConstants;
 import java.util.Scanner;
 
-import src.arbol.binario.listaligada.busqueda.avl.ArbolAVL;
-import src.bussiness.avl.IdentificadorDeLlamadas;
-import src.bussiness.avl.*;
-import src.models.Contact;
+import arbol.binario.listaligada.busqueda.avl.ArbolAVL;
+import bussiness.avl.IdentificadorDeLlamadas;
+import bussiness.avl.*;
+import models.Contact;
 
 
 public class SearchByNumberView {

@@ -1,7 +1,7 @@
-package src.controller;
+package controller;
 
-import src.bussiness.avl.IdentificadorDeLlamadas;
-import src.view.NewContacIdCallView;
+import bussiness.avl.IdentificadorDeLlamadas;
+import view.NewContacIdCallView;
 
 public class NewContacIdCallController {
     public static void index(IdentificadorDeLlamadas identificador){

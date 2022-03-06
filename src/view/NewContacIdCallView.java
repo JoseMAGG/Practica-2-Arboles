@@ -1,8 +1,8 @@
-package src.view;
+package view;
 import java.util.Scanner;
-import src.bussiness.avl.IdentificadorDeLlamadas;
-import src.models.Contact;
-import src.view.constants.NewContactIdCallConstants;
+import bussiness.avl.IdentificadorDeLlamadas;
+import models.Contact;
+import view.constants.NewContactIdCallConstants;
 
 public class NewContacIdCallView {
     static Scanner read = new Scanner (System.in);

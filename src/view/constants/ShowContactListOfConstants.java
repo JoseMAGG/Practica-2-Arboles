@@ -1,4 +1,4 @@
-package src.view.constants;
+package view.constants;
 
 public class ShowContactListOfConstants {
     public static final String TITLE = "\n" + "[!] Interfaz de lista de contactos de una línea ";

@@ -1,4 +1,4 @@
-package src.view.constants;
+package view.constants;
 
 
 public class MainConstants {

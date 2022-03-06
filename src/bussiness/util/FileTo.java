@@ -1,10 +1,10 @@
-package src.bussiness.util;
+package bussiness.util;
 
 import java.io.*;
 
-import src.arbol.binario.listaligada.busqueda.avl.ArbolAVL;
+import arbol.binario.listaligada.busqueda.avl.ArbolAVL;
 
-import src.models.Contact;
+import models.Contact;
 
 
 public class FileTo {

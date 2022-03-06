@@ -1,6 +1,6 @@
-package src.controller;
+package controller;
 
-import src.bussiness.avl.IdentificadorDeLlamadas;
+import bussiness.avl.IdentificadorDeLlamadas;
 
 public class MainController {
    
@@ -12,16 +12,16 @@ public class MainController {
         switch (select) {
         case '1':SearchByNumberController.index(identificador);                    
             break;
-        case '2':ShowContactListController.index();
-            break;
-        case '3':NewContactLevel1Controller.index();
-            break;
-        case '4':NewContactLevel2_3Controller.index();
-            break;
-        case '5':NewContacIdCallController.index(identificador);
-            break;
-        case '6':SaveController.index();
-            break;
+        // case '2':ShowContactListController.index();
+        //     break;
+        // case '3':NewContactLevel1Controller.index();
+        //     break;
+        // case '4':NewContactLevel2_3Controller.index();
+        //     break;
+         case '5':NewContacIdCallController.index(identificador);
+             break;
+        //case '6':SaveController.index();
+        //    break;
         case '.':
             break;
         default:

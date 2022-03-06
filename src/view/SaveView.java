@@ -1,5 +1,8 @@
-package src.view;
+package view;
 
 public class SaveView {
+    public static void index() {
+    
+    }
     
 }

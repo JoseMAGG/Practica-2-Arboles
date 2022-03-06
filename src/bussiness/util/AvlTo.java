@@ -1,17 +1,18 @@
 package bussiness.util;
 
 import java.io.*;
+import java.util.Stack;
 
 import arbol.binario.listaligada.busqueda.avl.ArbolAVL;
-
+import arbol.binario.listaligada.busqueda.avl.NodoAVL;
 import models.Contact;
-
 
 public class AvlTo {
 
     public static final String SEPARATOR = ";";
     public static final String QUOTE = "\"";
     public static final String COLON_SEPARATOR = ":";
+
     /**
      * @param filePath
      * @return MatrizEnTripleta
@@ -20,12 +21,11 @@ public class AvlTo {
 
     public static void txtFile(ArbolAVL<Contact> avl, String path) throws IOException {
 
-
+        NodoAVL<Contact> raiz = avl.getRoot();
 
         try {
-            String ruta = "src/contactos.txt";
-            String contenido = "Contenido de ejemplo";
-            File file = new File(ruta);
+
+            File file = new File(path);
 
             // Si el archivo no existe es creado
             if (!file.exists()) {
@@ -35,18 +35,36 @@ public class AvlTo {
             FileWriter fw = new FileWriter(file);
             BufferedWriter bw = new BufferedWriter(fw);
 
-            avl.toString();
+            /////
 
-            bw.newLine();
-            bw.write(contenido);
+            Stack<NodoAVL<Contact>> migas = new Stack<>();
+            NodoAVL<Contact> r = raiz;
+            migas.add(r);
+            r = (NodoAVL<Contact>) r.getLi();
+
+            while (!migas.isEmpty() || r != null) {
+                if (r != null) {
+                    migas.add(r);
+                    r = (NodoAVL<Contact>) r.getLi();
+                } else {
+                    r = migas.pop();
+                    Contact tempContact = (Contact) r.getDato();
+                    String newLine = tempContact.toLineText();
+                    bw.write(newLine);
+                    bw.newLine();
+
+                    r = (NodoAVL<Contact>) r.getLd();
+                }
+
+            }
+
             bw.close();
-        } catch (Exception e) {
+        } catch (
+
+        Exception e) {
             e.printStackTrace();
         }
 
-
-
     }
 
-    
 }

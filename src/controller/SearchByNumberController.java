@@ -1,7 +1,7 @@
-package src.controller;
+package controller;
 
-import src.bussiness.avl.IdentificadorDeLlamadas;
-import src.view.SearchByNumberView;
+import bussiness.avl.IdentificadorDeLlamadas;
+import view.SearchByNumberView;
 
 public class SearchByNumberController {
     public static void index(IdentificadorDeLlamadas identificador){
