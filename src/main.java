@@ -18,7 +18,12 @@ public class main {
         IdentificadorDeLlamadas identificador = new IdentificadorDeLlamadas();
         identificador.creteAvlFromFile();
         //crear arbol binario
+        ArbolContactosEjecutivos 
+
         Index.mainScreen(identificador);
+
+
+        
        // Contact foundContact = identificador.searchContact("3148284339");
        // System.out.println("contacto encontrado: " + foundContact);
 
