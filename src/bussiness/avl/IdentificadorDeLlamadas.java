@@ -2,10 +2,18 @@
 package src.bussiness.avl;
 
 import java.io.IOException;
+<<<<<<< HEAD
 import src.arbol.binario.listaligada.busqueda.avl.ArbolAVL;
 import src.bussiness.util.AvlTo;
 import src.bussiness.util.FileTo;
 import src.models.Contact;
+=======
+import arbol.binario.listaligada.busqueda.avl.ArbolAVL;
+import arbol.binario.listaligada.busqueda.avl.NodoAVL;
+import bussiness.util.AvlTo;
+import bussiness.util.FileTo;
+import models.Contact;
+>>>>>>> origin/juand2
 
 public class IdentificadorDeLlamadas {
 
@@ -33,8 +41,14 @@ public class IdentificadorDeLlamadas {
     public Contact searchContact(String number) {
 
         Contact contact = new Contact((Long.valueOf(number)));
-        Contact foundContact = (Contact) this.directorio.buscar(contact).getDato();// ejemplo buscar
+        Contact foundContact = null;
 
+        NodoAVL<Contact> tempNodo = this.directorio.buscar(contact);
+        if (tempNodo != null) {
+            foundContact = (Contact) tempNodo.getDato();
+        } else {
+            foundContact = new Contact("Contacto no encontrado", "0");
+        }
         return foundContact;
 
     }
@@ -47,13 +61,13 @@ public class IdentificadorDeLlamadas {
 
     public void avlToFile() throws IOException {
 
-        AvlTo.txtFile(this.directorio);
+        AvlTo.txtFile(this.directorio, "src/contactos.txt");
 
     }
 
     public void avlToFile(String path) throws IOException {
 
-        AvlTo.txtFile(this.directorio);
+        AvlTo.txtFile(this.directorio, path);
 
     }
 

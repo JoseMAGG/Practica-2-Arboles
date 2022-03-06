@@ -6,12 +6,12 @@ import src.arbol.binario.listaligada.busqueda.avl.ArbolAVL;
 
 import src.models.Contact;
 
-
 public class FileTo {
 
     public static final String SEPARATOR = ";";
     public static final String QUOTE = "\"";
     public static final String COLON_SEPARATOR = ":";
+
     /**
      * @param filePath
      * @return MatrizEnTripleta
@@ -25,7 +25,7 @@ public class FileTo {
         try {
 
             ArbolAVL<Contact> directorio = new ArbolAVL<Contact>();
-            
+
             br = new BufferedReader(new FileReader(filePath));
             String line = br.readLine();
 
@@ -33,13 +33,13 @@ public class FileTo {
 
                 String[] fields = line.split(COLON_SEPARATOR);
 
-                fields[0]=fields[0].replaceAll(" ","");
+                fields[0] = fields[0].replaceAll(" ", "");
 
                 Contact tempContact = new Contact();
-                tempContact.setPhoneNumber(Long.parseLong(fields[0]));
-                tempContact.setName(fields[1]);
+                tempContact.setPhoneNumber(Long.parseLong(fields[1]));
+                tempContact.setName(fields[0]);
                 directorio.insertarDato(tempContact);
-;
+                ;
 
                 line = br.readLine();
 
@@ -58,5 +58,4 @@ public class FileTo {
 
     }
 
-    
 }
