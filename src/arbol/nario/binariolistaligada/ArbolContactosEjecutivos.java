@@ -65,15 +65,14 @@ public class ArbolContactosEjecutivos<Contact extends Comparable> extends ArbolB
     public NodoBinarioGenerico<Contact> buscarNodoContacto(Contact contacto) {
         NodoBinarioGenerico<Contact> r = raiz;
         Stack<NodoBinarioGenerico<Contact>> migas = new Stack<>();
-        migas.add(r);
         r = r.getLi();
         while (!migas.isEmpty() || r != null) {
             if (r != null) {
+                if(r.getDato().compareTo(contacto) == 0) return r;
                 migas.add(r);
                 r = r.getLi();
             } else {
                 r = migas.pop();
-                if(r.getDato().compareTo(contacto) == 0) return r;
                 r = r.getLd();
             }
         }
@@ -88,6 +87,23 @@ public class ArbolContactosEjecutivos<Contact extends Comparable> extends ArbolB
             r = r.getLd();
         }
         return null;
+    }
+    
+    public String imprimirDescendencia(NodoBinarioGenerico<Contact> padre){
+        if(padre == null){
+            return "";
+        }else {
+            NodoBinarioGenerico<Contact> hijo =padre.getLi();
+            String des =  ""+padre.getDato()+":("+imprimirDescendencia(hijo)+")";
+            if(hijo != null){
+                hijo = hijo.getLd();
+                while (hijo!= null){
+                    des+=";("+imprimirDescendencia(hijo)+")";
+                    hijo = hijo.getLd();
+                }
+            }
+            return des;
+        }
     }
 
     @Override

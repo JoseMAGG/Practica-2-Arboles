@@ -1,4 +1,5 @@
 import arbol.binario.listaligada.busqueda.avl.ArbolAVL;
+import arbol.binario.listaligada.normal.NodoBinarioGenerico;
 import arbol.nario.binariolistaligada.ArbolContactosEjecutivos;
 
 import models.Contact;
@@ -25,6 +26,10 @@ public class main {
         ArbolContactosEjecutivos<Contact> ejecutivos = FileTo.contactosEjecutivos("src/empresariales.txt", contactos);
         System.out.println("Imprimiendo ejecutivos");
         System.out.println(ejecutivos);
+        NodoBinarioGenerico<Contact> contacto = ejecutivos.
+                buscarNodoContacto(new Contact(Long.valueOf("9471958384")));
+        System.out.println("Mostrando Contacto buscado: " + contacto);
+        System.out.println("Mostrando hijos de Contacto:\n" + ejecutivos.imprimirDescendencia(contacto));
     }
 }
 

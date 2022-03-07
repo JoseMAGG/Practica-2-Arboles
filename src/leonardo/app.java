@@ -34,6 +34,6 @@ public class app {
         Nodo i14 = new Nodo(14,18);
         System.out.println(arbol.Agregar(i14).getNumero());
 
-        System.out.println(arbol.imdes(arbol.getRaiz()));
+        System.out.println("Nodo i8:\n"+arbol.imdes(i18));
     }
 }
