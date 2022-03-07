@@ -3,6 +3,7 @@ import arbol.binario.listaligada.normal.NodoBinarioGenerico;
 import arbol.nario.binariolistaligada.ArbolContactosEjecutivos;
 
 import models.Contact;
+import util.EjecutivosTo;
 
 import util.FileTo;
 
@@ -30,6 +31,13 @@ public class main {
                 buscarNodoContacto(new Contact(Long.valueOf("9471958384")));
         System.out.println("Mostrando Contacto buscado: " + contacto);
         System.out.println("Mostrando hijos de Contacto:\n" + ejecutivos.imprimirDescendencia(contacto));
+        System.out.println("2 forma. Mostrando contactos de: " + contacto);
+        ejecutivos.imprimirContactosDe(contacto.getDato());
+        
+        ejecutivos.agregarContactoN1(new Contact(Long.valueOf("98765432")));
+        
+        System.out.println("Guardando arbol de contactos ejecutivos");
+        EjecutivosTo.txtFile(ejecutivos, "src/empresariales.txt");
     }
 }
 
