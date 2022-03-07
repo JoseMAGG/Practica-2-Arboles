@@ -31,17 +31,24 @@ public class IdentificadorDeLlamadas {
     }
 
     public Contact searchContact(String number) {
+        Contact contact = null;
+        try {
+            contact = new Contact((Long.valueOf(number)));
 
-        Contact contact = new Contact((Long.valueOf(number)));
-        Contact foundContact = null;
+            Contact foundContact = null;
 
-        NodoAVL<Contact> tempNodo = this.directorio.buscar(contact);
-        if (tempNodo != null) {
-            foundContact = (Contact) tempNodo.getDato();
-        } else {
-            foundContact = new Contact("Contacto no encontrado", "0");
+            NodoAVL<Contact> tempNodo = this.directorio.buscar(contact);
+            if (tempNodo != null) {
+                foundContact = (Contact) tempNodo.getDato();
+            } else {
+                foundContact = new Contact("Contacto no encontrado", "0");
+            }
+            return foundContact;
+
+        } catch (Exception e) {
+            System.out.println("Formato de ingreso incorrecto >>>>" + e);
+            return null;
         }
-        return foundContact;
 
     }
 
