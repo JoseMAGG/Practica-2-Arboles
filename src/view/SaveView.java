@@ -11,7 +11,6 @@ public class SaveView {
     public static void index(IdentificadorDeLlamadas identificador, ArbolContactosEjecutivos<Contact> ejecutivos) throws IOException {
         identificador.avlToFile();
         EjecutivosTo.txtFile(ejecutivos, "src/empresariales.txt");
-        //ejecutivos.binariosToFile();
         System.out.println("Árboles guardados con éxito");
     }
     
