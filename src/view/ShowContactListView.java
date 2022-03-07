@@ -23,7 +23,7 @@ public class ShowContactListView {
             Contact contact= new Contact(Long.valueOf(number));
             NodoBinarioGenerico<Contact> padre= ejecutivos.buscarNodoContacto(contact);
             String contactos=ejecutivos.imprimirDescendencia(padre);
-            
+                        
             System.out.println("Contactos del padre "+ contactos);
             do {
                 System.out.print(ShowContactListOfConstants.QUESTION);
