@@ -1,5 +1,7 @@
 import arbol.binario.listaligada.busqueda.avl.ArbolAVL;
 import bussiness.util.FileTo;
+import arbol.nario.binariolistaligada.ArbolContactosEjecutivos;
+
 import models.Contact;
 import view.Index;
 import bussiness.avl.IdentificadorDeLlamadas;
@@ -18,7 +20,10 @@ public class main {
         IdentificadorDeLlamadas identificador = new IdentificadorDeLlamadas();
         identificador.creteAvlFromFile();
         //crear arbol binario
-        Index.mainScreen(identificador);
+        ArbolContactosEjecutivos<Contact> ejecutivos = FileTo.contactosEjecutivos("src/empresariales.txt", identificador.getDirectorio());
+        //System.out.println("Imprimiendo ejecutivos");
+        //System.out.println(ejecutivos);
+        Index.mainScreen(identificador, ejecutivos);
        // Contact foundContact = identificador.searchContact("3148284339");
        // System.out.println("contacto encontrado: " + foundContact);
 
@@ -35,8 +40,8 @@ public class main {
         // Contact contact = new Contact((Long.valueOf("3148284339")));
         // System.out.println((contactos.buscar(contact)));// ejemplo buscar
 
-    }
 
+    }
 }
 
 // Lista de contactos ejecutivos=> //lista generalizada o un arbol n-ario aqui
