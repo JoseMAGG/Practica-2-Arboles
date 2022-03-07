@@ -23,8 +23,8 @@ public class EjecutivosTo {
     public static final String COLON_SEPARATOR = ":";
 
     /**
-     * @param filePath
-     * @return MatrizEnTripleta
+     * @param contactosEjecutivos
+     * @param path
      * @throws IOException
      */
 
@@ -76,7 +76,7 @@ public class EjecutivosTo {
             }
             bw.close();
             
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

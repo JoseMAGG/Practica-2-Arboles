@@ -13,5 +13,4 @@ public class SaveView {
         EjecutivosTo.txtFile(ejecutivos, "src/empresariales.txt");
         System.out.println("Árboles guardados con éxito");
     }
-    
 }
