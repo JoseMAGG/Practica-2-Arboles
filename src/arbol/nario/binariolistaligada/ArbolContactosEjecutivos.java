@@ -9,6 +9,7 @@ import arbol.binario.listaligada.normal.*;
 
 /**
  * @author 57300
+ * @param <Contact>
  */
 public class ArbolContactosEjecutivos<Contact extends Comparable> extends ArbolBinarioListaLigada<Contact> {
 
@@ -22,7 +23,6 @@ public class ArbolContactosEjecutivos<Contact extends Comparable> extends ArbolB
             return;
         }
         agregarContacto(contacto);
-        //TODO Agregar el contacto al arbol avl.
     }
     
     
@@ -46,7 +46,6 @@ public class ArbolContactosEjecutivos<Contact extends Comparable> extends ArbolB
             return;
         }
         agregarContactoAlReferido(contactoAgregar, nodoReferido);
-        //TODO Agregar el contacto al arbol avl.
     }
     
     /** Agrega el contactoAgregar como hijo del nodoReferido.
@@ -107,12 +106,35 @@ public class ArbolContactosEjecutivos<Contact extends Comparable> extends ArbolB
         }
     }
 
-
     @Override
     public String toString(){
         StringBuilder mensaje = new StringBuilder();
         Stack<NodoBinarioGenerico> migas = new Stack<>();
         NodoBinarioGenerico<Contact> r = raiz.getLi();
+        int nivel = 1;
+        while(!migas.isEmpty() || r != null){
+            if(r != null){
+                migas.add(r.getLd());
+                
+                for(int i = 1; i<nivel; i++){
+                    mensaje.append("\t");
+                }
+                
+                mensaje.append(r.getDato() + "\n");
+                r = r.getLi();
+                nivel++;
+            }else{
+                r = migas.pop();
+                nivel--;
+            }
+        }
+        return mensaje.toString();
+    }
+    
+    public String imprimirContactosDe(Contact contacto){
+        NodoBinarioGenerico<Contact> r = buscarNodoContacto(contacto).getLi();
+        StringBuilder mensaje = new StringBuilder();
+        Stack<NodoBinarioGenerico> migas = new Stack<>();
         int nivel = 1;
         while(!migas.isEmpty() || r != null){
             if(r != null){
