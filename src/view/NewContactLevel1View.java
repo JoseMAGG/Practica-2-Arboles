@@ -18,6 +18,8 @@ public class NewContactLevel1View {
     do {
         System.out.println(NewContactLevel1Constants.SUBTITLE);
         String number = read.nextLine();
+        if (number.equals("0"))
+            break;        
         System.out.println(NewContactLevel1Constants.NOTES);
         
         Contact contact= new Contact(Long.valueOf(number));

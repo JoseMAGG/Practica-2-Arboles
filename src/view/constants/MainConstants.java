@@ -3,9 +3,9 @@ package view.constants;
 
 public class MainConstants {
     public static final String AUTHORS[] = {
-         "Laura Tobon Ospina,", 
-         "Juan David Arismendy Pulgarin", 
-         "Leonardo Marín Restrepo", 
+         "Laura Tobon Ospina,\n", 
+         "Juan David Arismendy Pulgarin,\n", 
+         "Leonardo Marín Restrepo,\n", 
           "José Manuel González Grisales" };
     
     public static final String SUBTITLE="Trabajo realizado por: ";

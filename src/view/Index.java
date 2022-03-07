@@ -1,5 +1,6 @@
 package view;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import arbol.nario.binariolistaligada.ArbolContactosEjecutivos;
@@ -11,7 +12,7 @@ import view.constants.MainConstants;
 public class Index {
     static Scanner read = new Scanner(System.in);
 
-    public static void mainScreen(IdentificadorDeLlamadas identificador, ArbolContactosEjecutivos<Contact> ejecutivos) {
+    public static void mainScreen(IdentificadorDeLlamadas identificador, ArbolContactosEjecutivos<Contact> ejecutivos) throws IOException {
         System.out.println(MainConstants.SUBTITLE);
         for (String author : MainConstants.AUTHORS)
             System.out.print(author);

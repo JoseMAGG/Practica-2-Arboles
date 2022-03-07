@@ -31,7 +31,7 @@ public class main {
         //foundContact = identificador.searchContact("123456");
         //System.out.println("contacto encontrado: " + foundContact);
 
-        identificador.avlToFile();
+        
 
         // ArbolAVL<Contact> contactos;
         // contactos = FileTo.agenda("src/contactos.txt"); // crear el directorio
