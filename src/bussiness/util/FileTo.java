@@ -1,4 +1,4 @@
-package util;
+package bussiness.util;
 
 import java.io.*;
 import java.util.Stack;
@@ -10,12 +10,12 @@ import arbol.nario.binariolistaligada.ArbolContactosEjecutivos;
 
 import models.Contact;
 
-
 public class FileTo {
 
     public static final String SEPARATOR = ";";
     public static final String QUOTE = "\"";
     public static final String COLON_SEPARATOR = ":";
+
     /**
      * @param filePath
      * @return MatrizEnTripleta
@@ -29,7 +29,7 @@ public class FileTo {
         try {
 
             ArbolAVL<Contact> directorio = new ArbolAVL<Contact>();
-            
+
             br = new BufferedReader(new FileReader(filePath));
             String line = br.readLine();
 
@@ -37,7 +37,7 @@ public class FileTo {
 
                 String[] fields = line.split(COLON_SEPARATOR);
 
-                fields[0]=fields[0].replaceAll(" ","");
+                fields[0] = fields[0].replaceAll(" ", "");
 
                 Contact tempContact = new Contact();
                 tempContact.setPhoneNumber(Long.parseLong(fields[0]));
@@ -57,17 +57,16 @@ public class FileTo {
         }
     }
 
-    public static ArbolContactosEjecutivos<Contact> 
-        contactosEjecutivos(String filePath, ArbolAVL<Contact> directorio) throws IOException {
+    public static ArbolContactosEjecutivos<Contact> contactosEjecutivos(String filePath, ArbolAVL<Contact> directorio)
+            throws IOException {
         BufferedReader br = null;
-        System.out.println("Creando arbol de contactos ejecutivos");
+        // System.out.println("Creando arbol de contactos ejecutivos");
         try {
-            ArbolContactosEjecutivos<Contact> contEje = 
-                    new ArbolContactosEjecutivos<>(new NodoBinarioGenerico<>(null));
-   
+            ArbolContactosEjecutivos<Contact> contEje = new ArbolContactosEjecutivos<>(new NodoBinarioGenerico<>(null));
+
             br = new BufferedReader(new FileReader(filePath));
             String line = br.readLine();
-            
+
             Contact padre = null, hijo = null, nieto = null;
             NodoAVL<Contact> nodoAuxAVL;
             Stack<NodoBinarioGenerico<Contact>> nodosCont = new Stack();
@@ -75,49 +74,48 @@ public class FileTo {
             while (null != line) {
 
                 String[] fields = line.split(COLON_SEPARATOR);
-                fields[0]=fields[0].replaceAll(" ","");
+                fields[0] = fields[0].replaceAll(" ", "");
                 char nivel = fields[0].charAt(0);
-                switch(nivel){
+                switch (nivel) {
                     case '1':
                         nodosCont.clear();
                         padre = new Contact(Long.parseLong(fields[1]));
-                        NodoBinarioGenerico<Contact> nodoPadre = contEje.
-                                buscarNodoContactoN1(padre);
-                        if(nodoPadre != null){
+                        NodoBinarioGenerico<Contact> nodoPadre = contEje.buscarNodoContactoN1(padre);
+                        if (nodoPadre != null) {
                             nodosCont.add(nodoPadre);
-                        } else{
+                        } else {
                             nodoAuxAVL = directorio.buscar(padre);
-                            padre = nodoAuxAVL != null ? (Contact)nodoAuxAVL.getDato() 
-                                : padre;
+                            padre = nodoAuxAVL != null ? (Contact) nodoAuxAVL.getDato()
+                                    : padre;
                             nodosCont.add(contEje.agregarContacto(padre));
                         }
-                                  
+
                         hijo = new Contact(Long.parseLong(fields[2]));
                         nodoAuxAVL = directorio.buscar(hijo);
-                        hijo = nodoAuxAVL != null ? (Contact)nodoAuxAVL.getDato() 
+                        hijo = nodoAuxAVL != null ? (Contact) nodoAuxAVL.getDato()
                                 : hijo;
-                        
-                        nodosCont.add(contEje.agregarContactoAlReferido(hijo, 
+
+                        nodosCont.add(contEje.agregarContactoAlReferido(hijo,
                                 nodosCont.peek()));
                         break;
-                        
+
                     case '2':
-                        while(nodosCont.size() > 2){
+                        while (nodosCont.size() > 2) {
                             nodosCont.pop();
                         }
-                                                
+
                         nieto = new Contact(Long.parseLong(fields[2]));
                         nodoAuxAVL = directorio.buscar(nieto);
-                        nieto = nodoAuxAVL != null ? (Contact)nodoAuxAVL.getDato() 
+                        nieto = nodoAuxAVL != null ? (Contact) nodoAuxAVL.getDato()
                                 : nieto;
-                        nodosCont.add(contEje.agregarContactoAlReferido(nieto, 
+                        nodosCont.add(contEje.agregarContactoAlReferido(nieto,
                                 nodosCont.peek()));
                         break;
-                        
+
                     case '3':
                         contAux = new Contact(Long.parseLong(fields[2]));
                         nodoAuxAVL = directorio.buscar(contAux);
-                        contAux = nodoAuxAVL != null ? (Contact)nodoAuxAVL.getDato() 
+                        contAux = nodoAuxAVL != null ? (Contact) nodoAuxAVL.getDato()
                                 : contAux;
                         contEje.agregarContactoAlReferido(contAux, nodosCont.peek());
                         break;
@@ -137,6 +135,6 @@ public class FileTo {
             if (null != br) {
                 br.close();
             }
-        }        
+        }
     }
 }

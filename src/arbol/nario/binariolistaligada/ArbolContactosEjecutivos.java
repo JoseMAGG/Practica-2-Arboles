@@ -106,6 +106,24 @@ public class ArbolContactosEjecutivos<Contact extends Comparable> extends ArbolB
         }
     }
 
+    public String imprimirDescendencia(NodoBinarioGenerico<Contact> padre){
+        if(padre == null){
+            return "";
+        }else {
+            NodoBinarioGenerico<Contact> hijo =padre.getLi();
+            String des =  ""+padre.getDato()+":("+imprimirDescendencia(hijo)+")";
+            if(hijo != null){
+                hijo = hijo.getLd();
+                while (hijo!= null){
+                    des+=";("+imprimirDescendencia(hijo)+")";
+                    hijo = hijo.getLd();
+                }
+            }
+            return des;
+        }
+    }
+
+
     @Override
     public String toString(){
         StringBuilder mensaje = new StringBuilder();

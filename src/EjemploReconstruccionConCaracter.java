@@ -21,7 +21,6 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package src;
 import arbol.binario.listaligada.normal.ArbolBinarioListaLigada;
 import arbol.binario.listaligada.normal.NodoBinarioGenerico;
 

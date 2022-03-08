@@ -5,15 +5,13 @@ public class Contact implements Comparable<Contact> {
     private Long phoneNumber;
     private String name;
 
-    public Contact(long phoneNumber, String name) {
-        this.phoneNumber = phoneNumber;
+    public Contact(String name,String number) {
+        this.phoneNumber = Long.valueOf(number);
         this.name = name;
     }
 
     public Contact() {
     }
-
-    
 
     public Contact(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
@@ -45,5 +43,11 @@ public class Contact implements Comparable<Contact> {
 
         return this.phoneNumber.compareTo(o.phoneNumber);
     }
+   
+    public String toLineText() {
+
+        return this.phoneNumber.toString() + ":" + this.name;
+    }
+
 
 }

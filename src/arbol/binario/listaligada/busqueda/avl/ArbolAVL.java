@@ -38,7 +38,7 @@ public class ArbolAVL<T extends Comparable> {
 
     public NodoAVL<T> insertarDato(T dato) {
 
-        System.out.println("dato " + dato);
+        //System.out.println("dato " + dato);
         NodoAVL<T> nodoAInsertar = new NodoAVL<>(dato);
         if (root == null) {
             root = nodoAInsertar;
@@ -63,7 +63,7 @@ public class ArbolAVL<T extends Comparable> {
                 padrePivote = padreNodoRecorridoX;
             }
             //
-            int comparacion = nodoAInsertar.getDato().compareTo(nodoRecorrido.getDato()); // aqui está el problema
+            int comparacion = nodoAInsertar.getDato().compareTo(nodoRecorrido.getDato()); 
 
             if (comparacion == 0) {
                 // es un dato existente
@@ -122,19 +122,19 @@ public class ArbolAVL<T extends Comparable> {
         NodoAVL<T> nuevaRaizSubArbol = null;
         if (pivote.getfB() == +2) {
             if (q.getfB() == +1) {
-                System.out.println("rotacionDerecha");
+                //System.out.println("rotacionDerecha");
                 nuevaRaizSubArbol = rotacionDerecha(pivote, q);
             } else {
-                System.out.println("dobleRotacionDerecha");
+                //System.out.println("dobleRotacionDerecha");
                 nuevaRaizSubArbol = dobleRotacionDerecha(pivote, q);
             }
         } else if (pivote.getfB() == -2) {
             if (q.getfB() == -1) {
-                System.out.println("rotacionIzquierda");
+                //System.out.println("rotacionIzquierda");
                 nuevaRaizSubArbol = rotacionIzquierda(pivote, q);
 
             } else {
-                System.out.println("dobleRotacionIzquierda");
+                //System.out.println("dobleRotacionIzquierda");
                 nuevaRaizSubArbol = dobleRotacionIzquierda(pivote, q);
             }
         }

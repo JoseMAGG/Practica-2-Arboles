@@ -1,11 +1,11 @@
 import arbol.binario.listaligada.busqueda.avl.ArbolAVL;
-import arbol.binario.listaligada.normal.NodoBinarioGenerico;
+import bussiness.util.FileTo;
 import arbol.nario.binariolistaligada.ArbolContactosEjecutivos;
 
 import models.Contact;
-import util.EjecutivosTo;
+import view.Index;
+import bussiness.avl.IdentificadorDeLlamadas;
 
-import util.FileTo;
 
 //3. Conocer que personas están asociados a una característica particular en uno de sus genes.
 
@@ -16,28 +16,31 @@ public class main {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        // String inorden = "gehicbfdajklnmop";
-        // String preorden = "abceghidflkjmnop";
 
-        ArbolAVL<Contact> contactos;
-        contactos = FileTo.agenda("src/contactos.txt"); // crear el directorio general
-        System.out.println(contactos.toString());
-        Contact contact = new Contact((Long.valueOf("3148284339")));
-        System.out.println((contactos.buscar(contact)));// ejemplo buscar
-        ArbolContactosEjecutivos<Contact> ejecutivos = FileTo.contactosEjecutivos("src/empresariales.txt", contactos);
-        System.out.println("Imprimiendo ejecutivos");
-        System.out.println(ejecutivos);
-        NodoBinarioGenerico<Contact> contacto = ejecutivos.
-                buscarNodoContacto(new Contact(Long.valueOf("9471958384")));
-        System.out.println("Mostrando Contacto buscado: " + contacto);
-        System.out.println("Mostrando hijos de Contacto:\n" + ejecutivos.imprimirDescendencia(contacto));
-        System.out.println("2 forma. Mostrando contactos de: " + contacto);
-        ejecutivos.imprimirContactosDe(contacto.getDato());
+        IdentificadorDeLlamadas identificador = new IdentificadorDeLlamadas();
+        identificador.creteAvlFromFile();
+        //crear arbol binario
+        ArbolContactosEjecutivos<Contact> ejecutivos = FileTo.contactosEjecutivos("src/empresariales.txt", identificador.getDirectorio());
+        //System.out.println("Imprimiendo ejecutivos");
+        //System.out.println(ejecutivos);
+        Index.mainScreen(identificador, ejecutivos);
+       // Contact foundContact = identificador.searchContact("3148284339");
+       // System.out.println("contacto encontrado: " + foundContact);
+
+        //System.out.println("Contacto insertado" + (identificador.addContact(new Contact("ANA SOFIA", "123456"))));
+        //foundContact = identificador.searchContact("123456");
+        //System.out.println("contacto encontrado: " + foundContact);
+
         
-        ejecutivos.agregarContactoN1(new Contact(Long.valueOf("98765432")));
-        
-        System.out.println("Guardando arbol de contactos ejecutivos");
-        EjecutivosTo.txtFile(ejecutivos, "src/empresariales.txt");
+
+        // ArbolAVL<Contact> contactos;
+        // contactos = FileTo.agenda("src/contactos.txt"); // crear el directorio
+        // general
+        // System.out.println(contactos.toString());
+        // Contact contact = new Contact((Long.valueOf("3148284339")));
+        // System.out.println((contactos.buscar(contact)));// ejemplo buscar
+
+
     }
 }
 
@@ -53,12 +56,13 @@ public class main {
 // 1. 302345679 : 301987653 -> ojo con este que ya existía
 // se pueden ingresar nuevos contactos de nivel 1 o de nivel 2 en adelante
 
-
-//1. buscar en el arbol AVL (Identificador de llamadas) -> JD
-//2. Lista de contactos del arbol de contactos ejecutivos Arbol binario  -> LM imprimir los contactos(hijos) de un contacto
-//3. ingresar contacto nivel 1 en arbol de contactos ejecutivos  -> JM
-//4. Ingresar un nuevo contacto en el nivel 2 o 3  en arbol de contactos ejecutivos -> JM
-//5. Ingresar un nuevo contacto  en el arbol AVL (Identificador de llamadas) ->JD
-//6. Guardar los arboles en archivos de texto txt  ->  LM 
-//7. Vista y menus -> LT
-
+// 1. buscar en el arbol AVL (Identificador de llamadas) -> JD
+// 2. Lista de contactos del arbol de contactos ejecutivos Arbol binario -> LM
+// imprimir los contactos(hijos) de un contacto
+// 3. ingresar contacto nivel 1 en arbol de contactos ejecutivos -> JM
+// 4. Ingresar un nuevo contacto en el nivel 2 o 3 en arbol de contactos
+// ejecutivos -> JM
+// 5. Ingresar un nuevo contacto en el arbol AVL (Identificador de llamadas)
+// ->JD
+// 6. Guardar los arboles en archivos de texto txt -> LM
+// 7. Vista y menus -> LT
