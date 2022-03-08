@@ -59,12 +59,6 @@ public class EjecutivosTo {
                         bw.newLine();
                     }                   
                     
-                    if(nivel == 1 && r.getLi() == null){
-                        linea = nivel + COLON_SEPARATOR + r.getDato().getUserId() 
-                            + COLON_SEPARATOR + r.getDato().getUserId();
-                        bw.write(linea);
-                        bw.newLine();
-                    }
                     migasAnterior.add(r);
                     r = r.getLi();
                     nivel++;                    
@@ -75,7 +69,7 @@ public class EjecutivosTo {
                 }
             }
             bw.close();
-            
+                        
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -23,11 +23,13 @@ public class NewContactLevel2_3View {
         System.out.println(NewContactLevel2_3Constants.NOTES);
         String number = read.nextLine();
         
-        Contact contactoAgregar= new Contact(Long.valueOf(number));
-        Contact referidoGuardado= new Contact(Long.valueOf(fatherNumber));
-        ejecutivos.agregarContactoN2O3(contactoAgregar, referidoGuardado);
+        //Contact contactoAgregar= new Contact(Long.valueOf(number));
+        //Contact referidoGuardado= new Contact(Long.valueOf(fatherNumber));
+        //ejecutivos.agregarContactoN(nivel, contactoAgregar, referidoGuardado);
         
-        System.out.println("Contacto "+ contactoAgregar+"agregado de forma correcta");
+        //System.out.println("Contacto "+ contactoAgregar+"agregado de forma correcta");
+        System.out.println("Se debe pedir el nivel y obtener los contactos desde el AVL," +
+        "si no existen, se deben ingresar primero");
         do {
             System.out.print(NewContactLevel2_3Constants.QUESTION);
             response = read.next().charAt(0);

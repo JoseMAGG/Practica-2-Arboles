@@ -16,13 +16,10 @@ public class ArbolContactosEjecutivos<Contact extends Comparable> extends ArbolB
         super(raiz);
     }
 
-    public void agregarContactoN1(Contact contacto) {
-        if(buscarNodoContacto(contacto) != null){
-            System.out.println("El contacto ya se encuentra guardado en el nivel 1");
-            return;
-        }
-        agregarContacto(contacto);
-        //TODO Agregar el contacto al arbol avl.
+    public void agregarContactoN1(Contact padre, Contact hijo){
+        NodoBinarioGenerico<Contact> nodoPadre = buscarNodoContacto(1, padre);
+        nodoPadre = nodoPadre != null ? nodoPadre : agregarContacto(padre);
+        agregarContactoAlReferido(hijo, nodoPadre);
     }
     
     
@@ -38,15 +35,15 @@ public class ArbolContactosEjecutivos<Contact extends Comparable> extends ArbolB
         return nodo;
     }
  
-    public void agregarContactoN2O3(Contact contactoAgregar, Contact referidoGuardado) {
-        NodoBinarioGenerico<Contact> nodoReferido = buscarNodoContacto(referidoGuardado);
+    public void agregarContactoN(int nivel, Contact referidoGuardado, Contact contactoAgregar) {
+        NodoBinarioGenerico<Contact> nodoReferido = buscarNodoContacto(nivel, referidoGuardado);
+
         if(nodoReferido == null){
             System.out.println("El contanto referido no se encuentra agregado en la base de " +
                     "datos de Contactos Ejecutivos");
             return;
         }
         agregarContactoAlReferido(contactoAgregar, nodoReferido);
-        //TODO Agregar el contacto al arbol avl.
     }
     
     /** Agrega el contactoAgregar como hijo del nodoReferido.
@@ -56,10 +53,31 @@ public class ArbolContactosEjecutivos<Contact extends Comparable> extends ArbolB
      * @return  Devuelve el nodo con el contacto agregado
      */
     public NodoBinarioGenerico<Contact> agregarContactoAlReferido(Contact contactoAgregar,  NodoBinarioGenerico<Contact> nodoReferido){
+        
         NodoBinarioGenerico<Contact> nodoNuevo = new NodoBinarioGenerico<>(contactoAgregar);
         nodoNuevo.setLd(nodoReferido.getLi());
         nodoReferido.setLi(nodoNuevo);
         return nodoNuevo;
+    }
+
+    public NodoBinarioGenerico<Contact> buscarNodoContacto(int nivel, Contact contacto) {
+        NodoBinarioGenerico<Contact> r = raiz;
+        Stack<NodoBinarioGenerico<Contact>> migas = new Stack<>();
+        r = r.getLi();
+        int n = 1;
+        while (!migas.isEmpty() || r != null) {
+            if (r != null) {
+                if(r.getDato().compareTo(contacto) == 0 && nivel == n) return r;
+                migas.add(r);
+                r = r.getLi();
+                n++;
+            } else {
+                r = migas.pop();
+                r = r.getLd();
+                n--;
+            }
+        }
+        return null;
     }
 
     public NodoBinarioGenerico<Contact> buscarNodoContacto(Contact contacto) {
@@ -105,24 +123,6 @@ public class ArbolContactosEjecutivos<Contact extends Comparable> extends ArbolB
             return des;
         }
     }
-
-    public String imprimirDescendencia(NodoBinarioGenerico<Contact> padre){
-        if(padre == null){
-            return "";
-        }else {
-            NodoBinarioGenerico<Contact> hijo =padre.getLi();
-            String des =  ""+padre.getDato()+":("+imprimirDescendencia(hijo)+")";
-            if(hijo != null){
-                hijo = hijo.getLd();
-                while (hijo!= null){
-                    des+=";("+imprimirDescendencia(hijo)+")";
-                    hijo = hijo.getLd();
-                }
-            }
-            return des;
-        }
-    }
-
 
     @Override
     public String toString(){

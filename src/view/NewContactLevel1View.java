@@ -22,10 +22,12 @@ public class NewContactLevel1View {
             break;        
         System.out.println(NewContactLevel1Constants.NOTES);
         
-        Contact contact= new Contact(Long.valueOf(number));
-        ejecutivos.agregarContactoN1(contact);
+        //Contact contact= new Contact(Long.valueOf(number));
+        //ejecutivos.agregarContactoN1(contact);
         
-        System.out.println("Contacto "+ contact+"agregado de forma correcta");
+        //System.out.println("Contacto "+ contact+"agregado de forma correcta");
+        System.out.println("Se debe implementar obtener los contactos desde el AVL," +
+            "si no existen, se deben ingresar primero");
         do {
             System.out.print(NewContactLevel1Constants.QUESTION);
             response = read.next().charAt(0);
