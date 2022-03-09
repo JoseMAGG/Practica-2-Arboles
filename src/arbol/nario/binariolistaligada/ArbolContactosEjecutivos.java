@@ -53,7 +53,14 @@ public class ArbolContactosEjecutivos<Contact extends Comparable> extends ArbolB
      * @return  Devuelve el nodo con el contacto agregado
      */
     public NodoBinarioGenerico<Contact> agregarContactoAlReferido(Contact contactoAgregar,  NodoBinarioGenerico<Contact> nodoReferido){
-        
+        NodoBinarioGenerico<Contact> r = nodoReferido.getLi();
+        while(r != null){
+            if(r.getDato().compareTo(contactoAgregar) == 0){
+                System.out.println("El contacto hijo ya se encuentra guardado en los contactos del padre");
+                return r;
+            }
+            r = r.getLd();
+        }
         NodoBinarioGenerico<Contact> nodoNuevo = new NodoBinarioGenerico<>(contactoAgregar);
         nodoNuevo.setLd(nodoReferido.getLi());
         nodoReferido.setLi(nodoNuevo);
@@ -124,10 +131,26 @@ public class ArbolContactosEjecutivos<Contact extends Comparable> extends ArbolB
         }
     }
 
+    //retorna los contactos directos del nodo padre, es decir, sus hijos. si padre no existe retorna null
+    public String obtenerContactos(NodoBinarioGenerico<Contact> padre){
+        String hijos = "";
+        if(padre == null){
+            return null;
+        }else {
+            NodoBinarioGenerico<Contact> hijo = padre.getLi();
+            while (hijo != null){
+
+                hijos+= hijo.getDato()+"\n";
+                hijo = hijo.getLd();
+            }
+            return hijos;
+        }
+    }
+
     @Override
     public String toString(){
         StringBuilder mensaje = new StringBuilder();
-        Stack<NodoBinarioGenerico> migas = new Stack<>();
+        Stack<NodoBinarioGenerico<Contact>> migas = new Stack<>();
         NodoBinarioGenerico<Contact> r = raiz.getLi();
         int nivel = 1;
         while(!migas.isEmpty() || r != null){
@@ -152,7 +175,7 @@ public class ArbolContactosEjecutivos<Contact extends Comparable> extends ArbolB
     public void imprimirContactosDe(Contact contacto){
         NodoBinarioGenerico<Contact> r = buscarNodoContacto(contacto).getLi();
         StringBuilder mensaje = new StringBuilder();
-        Stack<NodoBinarioGenerico> migas = new Stack<>();
+        Stack<NodoBinarioGenerico<Contact>> migas = new Stack<>();
         int nivel = 1;
         while(!migas.isEmpty() || r != null){
             if(r != null){

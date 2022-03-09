@@ -29,7 +29,11 @@ public class main {
         Contact hijo = new Contact("Hijo", "5726343473");
         ejecutivos.agregarContactoN1(new Contact("Padre", "3823335240"), hijo);
         ejecutivos.agregarContactoN(2, hijo, new Contact("Nieto", "5234234935"));
+        
+        ejecutivos.agregarContactoN(2, hijo, new Contact(Long.valueOf("5234234935")));
         System.out.println(ejecutivos);
+        System.out.println("Mostrando los contactos de: Luis");
+        System.out.println(ejecutivos.obtenerContactos(ejecutivos.buscarNodoContacto(new Contact(Long.valueOf("9471958384")))));
         //System.out.println("Contacto insertado" + (identificador.addContact(new Contact("ANA SOFIA", "123456"))));
         //foundContact = identificador.searchContact("123456");
         //System.out.println("contacto encontrado: " + foundContact);
