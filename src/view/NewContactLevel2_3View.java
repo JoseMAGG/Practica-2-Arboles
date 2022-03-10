@@ -41,7 +41,7 @@ public class NewContactLevel2_3View {
         
         //Contact contactoAgregar= new Contact(Long.valueOf(number));
         //Contact referidoGuardado= new Contact(Long.valueOf(fatherNumber));
-        ejecutivos.agregarContactoN(nivel, contactHijo, contactPadre);
+        ejecutivos.agregarContactoN(nivel, contactPadre, contactHijo);
         
         //System.out.println("Contacto "+ contactoAgregar+"agregado de forma correcta");
 
