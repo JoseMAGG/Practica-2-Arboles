@@ -39,8 +39,8 @@ public class ArbolContactosEjecutivos<Contact extends Comparable> extends ArbolB
         NodoBinarioGenerico<Contact> nodoReferido = buscarNodoContacto(nivel, referidoGuardado);
 
         if(nodoReferido == null){
-            System.out.println("El contanto referido no se encuentra agregado en la base de " +
-                    "datos de Contactos Ejecutivos");
+            System.out.println("El contanto referido (papá) no se encuentra agregado en la base de " +
+                    "datos de Contactos Ejecutivos, por favor agreguelo en la opción 3");
             return;
         }
         agregarContactoAlReferido(contactoAgregar, nodoReferido);

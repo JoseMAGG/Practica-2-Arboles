@@ -19,9 +19,9 @@ public class MainController {
             break;
         case '2':ShowContactListController.index(ejecutivos);
              break;
-         case '3':NewContactLevel1Controller.index(ejecutivos);
+         case '3':NewContactLevel1Controller.index(ejecutivos, identificador);
              break;
-        case '4':NewContactLevel2_3Controller.index(ejecutivos);
+        case '4':NewContactLevel2_3Controller.index(ejecutivos, identificador);
              break;
          case '5':NewContacIdCallController.index(identificador);
              break;
