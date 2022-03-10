@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package arbol.binario.listaligada.busqueda.normal;
+package bussiness.arbol.binario.listaligada.busqueda.normal;
 
 /**
  *

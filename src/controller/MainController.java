@@ -2,7 +2,7 @@ package controller;
 
 import java.io.IOException;
 
-import arbol.nario.binariolistaligada.ArbolContactosEjecutivos;
+import bussiness.arbol.nario.binariolistaligada.ArbolContactosEjecutivos;
 import bussiness.avl.IdentificadorDeLlamadas;
 import models.Contact;
 

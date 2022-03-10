@@ -20,13 +20,14 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-package arbol.binario.listaligada.normal;
+package bussiness.arbol.binario.listaligada.normal;
 
-import arbol.nario.listageneralizada.NodoNario;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
+
+import bussiness.arbol.nario.listageneralizada.NodoNario;
 
 /**
  *

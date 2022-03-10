@@ -1,11 +1,12 @@
-package arbol.nario.binariolistaligada;/*
+package bussiness.arbol.nario.binariolistaligada;/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
 import java.util.Stack;
-import arbol.binario.listaligada.normal.*;
+
+import bussiness.arbol.binario.listaligada.normal.*;
 
 /**
  * @author 57300

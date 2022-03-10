@@ -2,8 +2,8 @@ package view;
 import view.constants.SearchByNumberConstants;
 import java.util.Scanner;
 
-import arbol.binario.listaligada.busqueda.avl.ArbolAVL;
 import bussiness.avl.IdentificadorDeLlamadas;
+import bussiness.arbol.binario.listaligada.busqueda.avl.ArbolAVL;
 import bussiness.avl.*;
 import models.Contact;
 

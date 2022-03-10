@@ -2,7 +2,7 @@ package view;
 
 import java.util.Scanner;
 
-import arbol.nario.binariolistaligada.ArbolContactosEjecutivos;
+import bussiness.arbol.nario.binariolistaligada.ArbolContactosEjecutivos;
 import bussiness.avl.IdentificadorDeLlamadas;
 import controller.SearchByNumberController;
 import models.Contact;

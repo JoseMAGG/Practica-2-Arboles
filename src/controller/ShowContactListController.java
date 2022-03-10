@@ -1,6 +1,6 @@
 package controller;
 
-import arbol.nario.binariolistaligada.ArbolContactosEjecutivos;
+import bussiness.arbol.nario.binariolistaligada.ArbolContactosEjecutivos;
 import models.Contact;
 import view.ShowContactListView;
 

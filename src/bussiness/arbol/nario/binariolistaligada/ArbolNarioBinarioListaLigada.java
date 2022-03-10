@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package arbol.nario.binariolistaligada;
+package bussiness.arbol.nario.binariolistaligada;
 
-import arbol.binario.listaligada.normal.ArbolBinarioListaLigada;
-import arbol.binario.listaligada.normal.NodoBinarioGenerico;
+import bussiness.arbol.binario.listaligada.normal.ArbolBinarioListaLigada;
+import bussiness.arbol.binario.listaligada.normal.NodoBinarioGenerico;
 
 /**
  *

@@ -3,8 +3,8 @@ package bussiness.util;
 import java.io.*;
 import java.util.Stack;
 
-import arbol.binario.listaligada.busqueda.avl.ArbolAVL;
-import arbol.binario.listaligada.busqueda.avl.NodoAVL;
+import bussiness.arbol.binario.listaligada.busqueda.avl.ArbolAVL;
+import bussiness.arbol.binario.listaligada.busqueda.avl.NodoAVL;
 import models.Contact;
 
 public class AvlTo {

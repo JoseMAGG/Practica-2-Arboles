@@ -3,7 +3,7 @@ package view;
 import java.io.IOException;
 import java.util.Scanner;
 
-import arbol.nario.binariolistaligada.ArbolContactosEjecutivos;
+import bussiness.arbol.nario.binariolistaligada.ArbolContactosEjecutivos;
 import bussiness.avl.IdentificadorDeLlamadas;
 import controller.MainController;
 import models.Contact;
